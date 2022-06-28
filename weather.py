@@ -2,12 +2,23 @@ import requests
 from requests.exceptions import HTTPError
 from configparser import ConfigParser
 
-
 # parse secrets.ini for OpenWeather API key
 def _get_api_key():
   config = ConfigParser()
   config.read('secrets.ini')
   return config['openweather']['api_key']
+
+# define ASCII escape sequences for coloring terminal output
+class colors:
+    PINK = '\033[95m'
+    BLUE = '\033[94m'
+    CYAN = '\033[96m'
+    GREEN = '\033[92m'
+    YELLOW = '\033[93m'
+    RED = '\033[91m'
+    ENDC = '\033[0m' # ends coloration
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
 
 # get API key from secrets.ini
 api_key = _get_api_key()
