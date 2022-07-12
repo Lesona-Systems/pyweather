@@ -49,7 +49,7 @@ lon = geoResponse.get('lon')
 
 weather_url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=imperial"
 
-# get current weather
+# get current weather, throw exceptions for HTTP error & other Exceptions
 try:
   get_current_weather = requests.get(weather_url)
   get_current_weather.raise_for_status()
